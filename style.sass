@@ -1,0 +1,156 @@
+@keyframes anim_slide
+    0%
+        opacity: 0.5
+        background-color: rgba(191, 202, 39, 0.51)
+    100%
+        opacity: 1
+        background-color: rgb(191, 202, 39)
+
+@keyframes grow_slide
+    0%
+        background-color: rgba(191, 202, 39, 0.5)
+        opacity: 0.5
+        min-width: 27vw
+    100%
+        background-color: rgb(191, 202, 39)
+        opacity: 1
+        min-width: 60vw
+@keyframes grow_wide
+    0%
+        width: 25vw
+    100%
+        width: 70vw
+@keyframes grow_high
+    0%
+        height: 45vh
+    100%
+        height: 75vh
+
+*
+    margin: 0
+    padding: 0
+body
+    padding: 1rem
+    background-color: rgb(19, 17, 45)
+    header
+        background-color: rgb(191, 202, 39)
+        text-align: center
+        h1
+            font-size: 2.5rem
+            color: white
+            padding: 0.5rem
+            text-shadow: 0 0 5px rgb(0, 0, 0)
+            background-image: radial-gradient(rgba(0, 0, 0, 0.456) 5%,rgba(255, 255, 255, 0) 50%)
+
+    .gallery
+        display: grid
+        grid-template-columns: auto auto auto auto
+        .img-container
+            display: grid
+            justify-items: center
+            opacity: 0.5
+            border: 3px solid rgb(27, 136, 0)
+            margin: 1rem
+            background-color: rgb(191, 202, 39)
+            h3
+                padding: 0.7rem
+            img
+                margin: 0.4rem
+                box-shadow: 0 0 10px rgb(0, 0, 0)
+            .preview_wide
+                width: 21vw
+            .preview_narrow
+                height: 24vh
+            p
+                padding: 0.3rem
+        .img-container:hover
+            opacity: 1
+    
+    .slider_box
+        .slider
+            display: flex
+            z-index: 100
+            background-color: rgba(0, 0, 0, 0.793)
+            position: fixed
+            width: 220vw
+            height: 100%
+            top: 0
+            justify-content: center
+            align-items: center
+            .slide_center
+                text-align: center
+                background-color: rgb(191, 202, 39)
+                padding: 1rem
+                h3
+                    padding: 0.7rem
+                img
+                    margin: 0.4rem
+                    box-shadow: 0 0 10px rgb(0, 0, 0)
+            .slide_side
+                opacity: 0.5
+                text-align: center
+                background-color: rgba(191, 202, 39, 0.51)
+                padding: 1rem
+                h3
+                    padding: 0.7rem
+                img
+                    margin: 0.4rem
+                    box-shadow: 0 0 10px rgb(0, 0, 0)
+            .slide_to_grow
+                min-width: 27vw
+            .slide_to_shrink
+                min-width: 60vw
+            .slide_to_grow.wide img
+                width: 25vw
+            .slide_to_shrink.wide img
+                width: 70vw
+            .slide_to_grow.high img
+                height: 45vh
+            .slide_to_shrink.high img
+                height: 75vh
+            .grow
+                animation-name: grow_slide
+                animation-duration: 2000ms
+                animation-fill-mode: forwards
+            .grow.wide img
+                animation-name: grow_wide
+                animation-duration: 2000ms
+                animation-fill-mode: forwards
+            .grow.high img
+                animation-name: grow_high
+                animation-duration: 2000ms
+                animation-fill-mode: forwards
+            .shrink
+                animation-name: grow_slide
+                animation-duration: 500ms
+                animation-direction: reverse
+                animation-fill-mode: forwards
+            .shrink.wide img
+                animation-name: grow_wide
+                animation-duration: 500ms
+                animation-direction: reverse
+                animation-fill-mode: forwards
+            .shrink.high img
+                animation-name: grow_high
+                animation-duration: 500ms
+                animation-direction: reverse
+                animation-fill-mode: forwards
+
+            .slide_side.slide_to_grow:hover
+                animation-name: anim_slide
+                animation-duration: 1s
+                animation-fill-mode: forwards
+    
+    .anti_click
+        display: block
+        position: fixed
+        width: 100vw
+        height: 100vh
+        top: 0
+        left: 0
+        z-index: 1000
+        background-color: rgba(255, 255, 255, 0)
+
+    .invisible
+        display: none
+
