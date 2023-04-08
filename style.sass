@@ -1,3 +1,61 @@
+@media screen and (min-width: 1751px)
+    *
+        font-size: 16pt
+@media screen and (max-width: 1750px)
+    *
+        font-size: 15pt
+@media screen and (max-width: 1650px)
+    *
+        font-size: 14pt
+@media screen and (max-width: 1550px)
+    *
+        font-size: 13pt
+@media screen and (max-width: 1450px)
+    *
+        font-size: 12pt
+@media screen and (max-width: 1350px)
+    *
+        font-size: 11pt
+@media screen and (max-width: 1250px)
+    *
+        font-size: 10pt
+@media screen and (max-width: 1250px)
+    *
+        font-size: 10pt
+@media screen and (max-width: 1150px)
+    *
+        font-size: 9pt
+@media screen and (max-width: 1000px)
+    *
+        font-size: 8pt
+@media screen and (max-width: 900px)
+    *
+        font-size: 7pt
+@media screen and (max-width: 900px)
+    *
+        font-size: 6pt
+@media screen and (min-width: 851px)
+    .gallery
+        grid-template-columns: auto auto auto auto
+        .preview_wide
+            width: 20vw
+        .preview_narrow
+            height: 24vh
+@media screen and (max-width: 850px)
+    .gallery
+        grid-template-columns: auto auto auto
+        .preview_wide
+            width: 25vw
+        .preview_narrow
+            height: 23vh
+@media screen and (max-width: 600px)
+    .gallery
+        grid-template-columns: auto auto
+        .preview_wide
+            width: 43vw
+        .preview_narrow
+            height: 22vh
+
 @keyframes anim_slide
     0%
         opacity: 0.5
@@ -30,7 +88,7 @@
     margin: 0
     padding: 0
 body
-    padding: 1rem
+    padding: 1vh 1vw
     background-color: rgb(19, 17, 45)
     header
         background-color: rgb(191, 202, 39)
@@ -38,34 +96,29 @@ body
         h1
             font-size: 2.5rem
             color: white
-            padding: 0.5rem
+            padding: 1vh 1vw
             text-shadow: 0 0 5px rgb(0, 0, 0)
             background-image: radial-gradient(rgba(0, 0, 0, 0.456) 5%,rgba(255, 255, 255, 0) 50%)
 
     .gallery
         display: grid
-        grid-template-columns: auto auto auto auto
         .img-container
             display: grid
             justify-items: center
             opacity: 0.5
             border: 3px solid rgb(27, 136, 0)
-            margin: 1rem
+            margin: 0.3vh 0.3vw
             background-color: rgb(191, 202, 39)
             h3
-                padding: 0.7rem
+                padding: 1vh 1vw
             img
-                margin: 0.4rem
+                margin: 1vh 1vw
                 box-shadow: 0 0 10px rgb(0, 0, 0)
-            .preview_wide
-                width: 21vw
-            .preview_narrow
-                height: 24vh
             p
-                padding: 0.3rem
+                padding: 1vh 1vw
         .img-container:hover
             opacity: 1
-    
+
     .slider_box
         .slider
             display: flex
@@ -80,21 +133,21 @@ body
             .slide_center
                 text-align: center
                 background-color: rgb(191, 202, 39)
-                padding: 1rem
+                padding: 1vh 1vw
                 h3
-                    padding: 0.7rem
+                    padding: 1vh 1vw
                 img
-                    margin: 0.4rem
+                    margin: 1vh 1vw
                     box-shadow: 0 0 10px rgb(0, 0, 0)
             .slide_side
                 opacity: 0.5
                 text-align: center
                 background-color: rgba(191, 202, 39, 0.51)
-                padding: 1rem
+                padding: 1vh 1vw
                 h3
-                    padding: 0.7rem
+                    padding: 1vh 1vw
                 img
-                    margin: 0.4rem
+                    margin: 1vh 1vw
                     box-shadow: 0 0 10px rgb(0, 0, 0)
             .slide_to_grow
                 min-width: 27vw
@@ -140,7 +193,47 @@ body
                 animation-name: anim_slide
                 animation-duration: 1s
                 animation-fill-mode: forwards
-    
+
+    .tabs
+        .tab_titles
+            display: flex
+            padding: 1vh 2vw 0vh 2vw
+            button
+                font-size: 0.7rem
+                background-color: rgb(136, 144, 17)
+                padding: 1rem
+                border-radius: 0.5rem 0.5rem 0rem 0rem
+                border: 1px 1px 0px 1px solid black
+                margin: 0.5rem -0.3rem -0.3rem -0.3rem
+                z-index: 0
+            button:hover
+                z-index: 1
+                background-color: rgb(159, 168, 31)
+            button.active
+                z-index: 4
+                background-color: rgb(191, 202, 39)
+        .tab
+            position: absolute
+            text-align: center
+            background-color: rgb(191, 202, 39)
+            margin: 0vh 1vw 1vh 1vw
+            padding: 0vh 1vw 1vh 1vw
+            width: 94vw
+            z-index: 2
+            h2
+                padding: 1vh 1vw
+                font-size: 2rem
+            img
+                margin: 1vh 1vw
+                box-shadow: 0 0 10px rgb(0, 0, 0)
+            img.wide
+                width: 90vw
+            img.high
+                height: 60vw
+        .tab.active
+            z-index: 10
+            
+
     .anti_click
         display: block
         position: fixed
@@ -153,4 +246,3 @@ body
 
     .invisible
         display: none
-

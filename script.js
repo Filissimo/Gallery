@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "height": 675
         },
         {
-            "title": "Красная маинка",
+            "title": "Красная машинка",
             "src": "./pics/pic1.jpg",
             "width": 1200,
             "height": 678
@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
 
     let gallery = document.querySelector(".gallery")
+
     for (image of images) {
         if (image.width / image.height > 1.55) {
             var preview_class = "preview_wide"
@@ -97,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let slide_right = document.querySelector(".slide_right")
     let img_containers = document.querySelectorAll(".img-container")
     let anti_click = document.querySelector(".anti_click")
+    let header = document.querySelector("header")
 
     function reset_slide(slide) {
         // slide.innerHTML = `<img src="" class="">`
@@ -281,5 +283,55 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("slide_center clicked")
         reset_slider()
         slider_box.classList.add('invisible')
+    }
+
+    let tabs = document.querySelector(".tabs")
+
+    header.onclick = () => {
+        gallery.classList.toggle('invisible')
+        tabs.classList.toggle('invisible')
+    }
+
+    for (image of images) {
+        if (image.width / image.height > 1.55) {
+            var preview_class = "wide"
+        } else {
+            var preview_class = "high"
+        }
+        let tab_titles = document.querySelector(".tab_titles")
+        activity = ""
+        invisibility = "invisible"
+        if (image.title == "Синяя машинка") {
+            invisibility = ""
+            activity = "active"
+        }
+        tab_titles.innerHTML += `
+            <button class="${activity}">${image.title}</button>
+        `
+        tabs.innerHTML += `
+            <div class="tab ${invisibility} ${activity}">
+                <h2>${image.title}</h2>
+                <img src="${image.src}" alt="${image.src}" class="${preview_class}"></img>
+                <p>Ширина: ${image.width}. Высота: ${image.height}</p>
+            </div>
+        `
+    }
+
+    let tabs_rendered = document.querySelectorAll(".tab")
+    let tab_btns = document.querySelectorAll(".tab_titles button")
+    for (let i = 0; i < tab_btns.length; i++) {
+        tab_btns[i].onclick = () => {
+            for (let j = 0; j < tabs_rendered.length; j++) {
+                if (tab_btns[i].innerHTML === tabs_rendered[j].querySelector("h2").innerHTML) {
+                    tab_btns[i].classList.add("active")
+                    tabs_rendered[j].classList.add("active")
+                    tabs_rendered[j].classList.remove("invisible")
+                } else {
+                    tabs_rendered[j].classList.remove("active")
+                    tabs_rendered[j].classList.add("invisible")
+                    tab_btns[j].classList.remove("active")
+                }
+            }
+        }
     }
 })
